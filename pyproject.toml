@@ -1,0 +1,31 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Observe-Tools — Configuration des dépendances Python (géré par uv)
+# IRD OB7 - SCISEA
+#
+# Pour installer : exécuter INSTALLER.bat (une seule fois, avec internet)
+# Pour lancer    : exécuter LANCER.bat
+# Pour mettre à jour : exécuter METTRE_A_JOUR.bat
+# ─────────────────────────────────────────────────────────────────────────────
+
+[project]
+name = "observe-tools"
+version = "3.6.5"
+description = "Observe-Tools — Correction et génération de figures pour les exports ObServe (IRD OB7 SCISEA)"
+requires-python = ">=3.11"
+
+dependencies = [
+    # Lecture et manipulation des tableaux Excel
+    "pandas>=2.2",
+    "openpyxl>=3.1",
+    # Génération des figures (graphiques)
+    "matplotlib>=3.9",
+    # Affichage des images dans l'interface (prévisualisation figures)
+    "pillow>=10.0",
+    # Tableau interactif avec surlignage de cellules (Phase 1)
+    "tksheet>=7.2",
+    # Requêtes HTTP pour télécharger le référentiel ObServe (optionnel, hors ligne sinon)
+    "requests>=2.31",
+    "docxtpl>=0.20.2",
+]
+
+# tkinter est fourni avec Python — pas besoin de l'installer via pip

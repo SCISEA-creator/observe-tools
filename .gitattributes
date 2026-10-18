@@ -1,0 +1,9 @@
+# Forcer les scripts Windows en CRLF pour que cmd.exe / wscript les lise correctement
+*.bat text eol=crlf
+*.vbs text eol=crlf
+
+# Fichiers texte Python et JSON : LF standard
+*.py  text eol=lf
+*.json text eol=lf
+*.toml text eol=lf
+*.md   text eol=lf

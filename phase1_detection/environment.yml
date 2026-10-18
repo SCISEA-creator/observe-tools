@@ -1,0 +1,45 @@
+# Environnement conda pour la Phase 1 du projet Observe-Tools
+# Phase 1 : détection des erreurs dans les exports xlsx d'ObServe
+#
+# ── Créer l'environnement (première fois seulement) ──────────────────────────
+#   conda env create -f phase1_detection/environment.yml
+#
+# ── Activer l'environnement avant de lancer l'application ────────────────────
+#   conda activate observe-phase1
+#
+# ── Mettre à jour l'environnement après modification de ce fichier ───────────
+#   conda env update -f phase1_detection/environment.yml --prune
+
+name: observe-phase1
+
+channels:
+  - defaults          # dépôt officiel conda
+
+dependencies:
+
+  # ── Socle Python ─────────────────────────────────────────────────────────────
+  - python=3.11       # version stable ; 3.11 recommandé (3.12+ parfois instable)
+  - tk                # bibliothèque tkinter — interface graphique de l'application
+
+  # ── Lecture et écriture des fichiers Excel (.xlsx) ───────────────────────────
+  # Utilisés pour : lire les exports ObServe (1_trip, 2_set, 8_catch, 9_sample...),
+  #                 exporter le rapport d'anomalies, générer les règles de correction
+  - pandas=2.2        # manipulation des données tabulaires (DataFrames)
+  - openpyxl=3.1      # moteur de lecture/écriture .xlsx (requis par pandas + usage direct)
+
+  # ── Graphiques (Phase 2 : génération des figures du rapport) ────────────────
+  - matplotlib=3.9    # création de tous les graphiques (camemberts, histogrammes, courbes)
+
+  # ── Paquets installés via pip (absents du dépôt conda) ───────────────────────
+  - pip
+  - pip:
+      - tksheet       # tableau interactif avec surlignage de cellules
+                      # utilisé dans la fenêtre principale et la fenêtre référentiel
+
+# ── Ce qui N'est PAS listé ici (déjà inclus dans Python) ─────────────────────
+# tkinter   → inclus dans le paquet 'tk' ci-dessus
+# zipfile   → bibliothèque standard Python (lecture des exports .zip ObServe)
+# json      → bibliothèque standard Python (référentiel local + fichier de langue)
+# urllib    → bibliothèque standard Python (téléchargement du référentiel ObServe)
+# threading → bibliothèque standard Python (téléchargement en arrière-plan)
+# os, sys, tempfile, shutil → bibliothèques standard Python

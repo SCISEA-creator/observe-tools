@@ -1,0 +1,70 @@
+# Annotations locales de l'observateur — données propres à chaque machine
+phase1_detection/annotations/
+
+# Données de travail utilisateur — ne jamais envoyer sur GitHub
+data/
+*.zip
+*.xlsx
+*.xls
+*.csv
+
+# Exception : les fichiers de règles de correction sont versionnés (c'est du code, pas des données)
+!phase1_detection/Règles de corrections/*.xlsx
+
+# Exception : les 3 fonds de carte utilisés par la Phase 2 (Natural Earth + Marine Regions,
+# crédités dans le README). Les gros fichiers de travail (.shp) restent hors du dépôt.
+!phase2_graphiques/data/
+phase2_graphiques/data/*
+!phase2_graphiques/data/ocean_indien_cotes.geojson
+!phase2_graphiques/data/ocean_indien_zee.geojson
+!phase2_graphiques/data/ocean_indien_zee_polygones.geojson
+
+# Dossier marée-type : contient les données de test et les figures générées
+phase1_detection/Marée type/
+
+# Fichiers verrou temporaires créés par Excel/Word
+~$*
+
+# Préférence locale de langue (générée automatiquement au premier lancement)
+config.json
+
+# Environnement Python — inutile sur GitHub, recréé localement par uv sync
+__pycache__/
+*.pyc
+*.pyo
+.env
+# Environnement virtuel uv (200+ Mo de librairies — recréé automatiquement par uv sync)
+.venv/
+
+# Outputs générés Phase 3 (documents Word de test ou générés par l'app — pas du code source)
+phase3_rapport/test_output_*.docx
+phase3_rapport/*_Rapport.docx
+
+# Outils de développement liés aux données de marées réelles (droits des données IRD) :
+# gardés en local, jamais publiés. L'app n'en a pas besoin pour fonctionner.
+_test_app.py
+phase1_detection/creer_donnees_test.py
+phase3_rapport/prepare_template.py
+phase3_rapport/_test_batch.py
+phase3_rapport/test_rendu.py
+phase3_rapport/lire_corrections.py
+phase3_rapport/regenerer.ps1
+phase3_rapport/_audit.py
+phase3_rapport/_check*.py
+phase3_rapport/_diag*.py
+Manuel_*.docx
+Manuel_*.pdf
+
+# Notes internes de développement (mémoire de travail, suivi) : gardées en local, non publiées
+CLAUDE.md
+Checklist.md
+
+# Dossier interne Claude (données de session locale, pas du code)
+.claude/
+
+# Fichiers système Windows
+Thumbs.db
+desktop.ini
+
+# Fichiers VS Code locaux (paramètres personnels)
+.vscode/
